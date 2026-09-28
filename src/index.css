@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+body {
+  @apply bg-paper text-ink font-sans antialiased dark:bg-night dark:text-slate-200;
+  background-image: radial-gradient(rgb(15 27 45 / 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dark body { background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px); }
+:focus-visible { @apply outline outline-2 outline-offset-2 outline-line; }
+
+@layer components {
+  .btn { @apply inline-flex w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-bold transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:scale-95 sm:w-auto; }
+  .btn-primary { @apply btn bg-line text-white hover:bg-blue-700 hover:shadow-line/30; }
+  .btn-ghost { @apply btn border border-ink/25 hover:border-line hover:text-line dark:border-white/25 dark:hover:border-signal dark:hover:text-signal; }
+  .tag { @apply rounded-md bg-ink/[0.07] px-3 py-1 text-sm transition hover:bg-line hover:text-white dark:bg-white/10 dark:hover:bg-signal dark:hover:text-ink; }
+  .card { @apply rounded-lg border border-ink/15 bg-white/60 p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-line hover:shadow-xl dark:border-white/15 dark:bg-white/[0.04] dark:hover:border-signal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .card, .tag { transition: none; transform: none !important; }
+}
